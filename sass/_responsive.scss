@@ -1,0 +1,111 @@
+// @media (min-width: 768px) {
+//   // 30px on mobile
+//   // 64px on desktop
+//   h1 {
+//     font-size: 4rem;
+//     line-height: 4.875rem;
+//   }
+
+//   // 56px
+//   h2 {
+//     font-size: 3.5rem;
+//     line-height: 4rem;
+//   }
+
+//   // 48px
+//   h3 {
+//     font-size: 3rem;
+//     line-height: 3.75rem;
+//   }
+
+//   // 32px
+//   h4 {
+//     font-size: 2rem;
+//     color: $black;
+//   }
+
+//   // 24x
+//   h5 {
+//     font-size: 1.5rem;
+//     line-height: 2.1875rem;
+//   }
+
+//   // 18px
+//   p {
+//     font-size: 1.125rem;
+//     line-height: 1.875rem;
+//   }
+
+//   .button.button-mobile {
+//     padding: 12px 36px;
+//   }
+//   .hero {
+//     .button--md {
+//       width: auto;
+//       padding: 16px 26px;
+//     }
+//   }
+
+//   .nav__container {
+//     .faq-answer {
+//       right: 66px;
+//     }
+//   }
+
+//   .wrap {
+//     .modal {
+//       label {
+//         width: 60px;
+//         height: 32px;
+//       }
+
+//       label:after {
+//         top: 3px;
+//         left: 3px;
+//         width: 28px;
+//         height: 27px;
+//       }
+//     }
+//   }
+
+//   .dashboard {
+//     .dashboard__table {
+//       padding: 48px 40px;
+//       // .profile__name {
+//       //   width: 230px;
+//       // }
+//     }
+//     .dashboard__engage {
+//       a:hover > img {
+//         transform: rotate(-30deg);
+//         padding-left: 16px;
+//         transition: all 0.2s linear 0s;
+//       }
+//     }
+//   }
+// }
+// @media (min-width: 992px) {
+//   .dashboard {
+//     .column-1 {
+//       position: sticky;
+//       top: 0;
+//     }
+//     .column-2 {
+//       position: sticky;
+//       .dashboard__table {
+//         overflow-y: scroll;
+//         height: calc(100vh - 0px);
+//       }
+//     }
+//   }
+//   .feature {
+//     .feature__heading.custom-margin {
+//       margin-bottom: 200px;
+//     }
+//     .custom-margin {
+//       margin-bottom: 180px;
+//     }
+//   }
+// }
+// // @media (min-width: 1200px) {
+// // }

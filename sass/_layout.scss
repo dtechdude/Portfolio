@@ -1,0 +1,272 @@
+$black: #2b2b2b;
+$mid-black: #595959;
+$light-black: #767676;
+$dark-black: #4a4a4a;
+$bg-grey: #fafafa;
+$border-midblack: #151515;
+$white: #ffffff;
+
+// :root {
+//   font-size: 100%;
+// }
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: inter;
+}
+
+// 48px
+h3 {
+  font-size: 2.25rem;
+  line-height: 3rem;
+  // font-family: roobert;
+}
+
+// 32px
+h4 {
+  font-size: 2rem;
+  color: $black;
+}
+
+// 24x
+h5 {
+  font-size: 1.5rem;
+  line-height: 2.1875rem;
+  font-weight: normal;
+}
+
+// 18px
+p {
+  font-size: 1.125rem;
+  font-weight: normal;
+  line-height: 2.5rem;
+  color: $light-black;
+}
+
+// 14px
+small {
+  font-size: 0.875rem;
+  display: inline-block;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+ul {
+  margin: 0;
+}
+
+// button
+.button {
+  padding: 12px 36px;
+  background-color: $black;
+  color: $white;
+  font-weight: 500;
+  border-radius: 4px;
+}
+.button.button-mobile {
+  padding: 12px 24px;
+}
+.button--md {
+  @extend .button;
+  padding: 16px 26px;
+}
+
+header {
+  nav {
+    padding: 0px 87px 16px 87px;
+    margin-top: 20px;
+    border: rgba(#151515, 0.1);
+    .nav-item:not(:last-child) {
+      margin-right: 64px;
+    }
+    .nav-item:last-child {
+      margin-right: 56px;
+    }
+    .nav-item > a {
+      color: $black;
+    }
+  }
+  .hero__content {
+    padding: 112px 0 0 87px;
+    &.custom-padding {
+      padding: 112px 0 0 87px;
+      margin: 0 auto;
+    }
+    h5 {
+      padding-top: 8px;
+      color: $light-black;
+      line-height: 36px;
+    }
+    h4 {
+      padding-top: 32px;
+      color: $light-black;
+      line-height: 48px;
+      font-weight: normal;
+    }
+    .hero__subheading {
+      margin-top: 56px;
+      .hero__subheading-description {
+        color: $black;
+      }
+    }
+  }
+}
+.full-width-img {
+  margin-top: 72px;
+}
+
+main {
+  padding: 96px 87px 0 87px;
+  &.custom-padding {
+    padding-top: 0;
+  }
+  &.custom-pl-pr {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .custom-padding-lg {
+    padding: 0 316px;
+  }
+  .card-group:first-child {
+    margin-bottom: 48px;
+  }
+  .card:first-child {
+    padding-right: 26px;
+    border-color: rgba(#151515, 0.1);
+  }
+  .card:last-child {
+    padding-left: 26px;
+  }
+  .card {
+    width: 100%;
+  }
+  .card-body,
+  .card-subtitle {
+    padding-top: 32px;
+  }
+  .card-subtitle {
+    color: $dark-black;
+  }
+  .card-title {
+    color: $light-black;
+    span {
+      color: $black;
+      margin-right: 16px;
+    }
+  }
+  // about page
+  .content {
+    width: 684px;
+    margin-top: 56px;
+    p:not(:last-child) {
+      margin-bottom: 64px;
+    }
+  }
+  .content + img {
+    width: 456px;
+    height: 347px;
+    object-fit: contain;
+    margin-left: 216px;
+    margin-top: 56px;
+  }
+  // case study
+  .block-text:first-child {
+    margin-top: 128px;
+  }
+  .block-text:not(:last-child) {
+    margin-bottom: 80px;
+  }
+  .block-text {
+    &.custom-mt-lg {
+      margin-top: 80px;
+    }
+    ol {
+      padding-left: 28px;
+      li {
+        padding-right: 5px;
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: 40px;
+        color: $mid-black;
+      }
+    }
+    .list-2 {
+      list-style: none;
+      padding-left: 0;
+      li:before {
+        content: "2. ";
+      }
+    }
+    .list-3 {
+      list-style: none;
+      padding-left: 0;
+      li:before {
+        content: "3. ";
+      }
+    }
+  }
+  .block-text-subtitle {
+    margin-top: 40px;
+    font-weight: 500;
+    color: $mid-black;
+  }
+  .block-text-paragraph {
+    margin-top: 24px;
+    line-height: 40px;
+  }
+  .block-text-subtext {
+    margin-top: 48px;
+    color: $black;
+  }
+  ul {
+    margin-top: 24px;
+    &.custom-mt-md {
+      margin-top: 48px;
+    }
+    &.custom-mt-sm {
+      margin-top: 24px;
+    }
+    li {
+      font-size: 18px;
+      line-height: 40px;
+      color: $light-black;
+    }
+  }
+  .block-img {
+    margin-top: 72px;
+    &.custom-margin {
+      margin: 72px auto 0;
+    }
+    &.custom-width {
+      width: 77%;
+    }
+  }
+}
+
+footer {
+  padding: 104px 87px 104px 87px;
+  background: $bg-grey;
+  margin-top: 200px;
+  h5 {
+    padding-top: 8px;
+  }
+  .button {
+    margin-top: 40px;
+  }
+  .footer__socials {
+    margin-top: 132px;
+    margin-bottom: 40px;
+  }
+  .footer__socials-link {
+    margin-right: 40px;
+  }
+}
