@@ -1,0 +1,142 @@
+<!-- header -->
+{% include 'partials/header.liquid' %}
+
+  <main class="main-wrapper">
+  <div class="section-helpcenter-header">
+    <div class="page-padding">
+      <div class="container-large">
+        <div class="padding-vertical padding-xxlarge">
+          <div class="section-header is-text-align-center">
+            <h5 class="heading-large is-text-color-white">Hello, how can we help?<br></h5>
+            <div class="max-width-medium">
+              <p class="paragraph-body is-text-color-white is-margin-bottom-none">Search for needed answers or browse our knowledge base.</p>
+            </div>
+            <!-- Form -->
+            <div class="form-group is-margin-top-custom-medium w-form">
+              <form id="wf-form-Search-Form" name="wf-form-Search-Form" data-name="Search Form" method="get">
+                <div class="form_block"><img src="images/search-icon.svg" loading="lazy" alt="" class="form_icon"><input type="text" oninput="return showIcon()" class="form_inputfield is-large w-input" maxlength="256" name="Search" data-name="Search" placeholder="Search for articles.." id="Search">
+                  <div class="clear-icon">
+                    <img src="images/clear-icon.svg" alt="">
+                  </div>
+                </div>
+              </form>
+              <!-- hidden form -->
+              <div class="form-dropdown">
+                <ul class="dropdown-wrapper">
+                  <li class="dropdown-item">
+                    <a href="">
+                      <div class="item-title">
+                        How to create a segment
+                      </div>
+                      <div class="item-description">
+                        <mark>customers</mark>. This is a good way to ensure that
+                      </div>
+                    </a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a href="">
+                      <div class="item-title">
+                        Sorting Articles, Categories and Collections
+                      </div>
+                      <div class="item-description">
+                        To sort an article,go to the article page,
+                      </div>
+                    </a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a href="">
+                      <div class="item-title">
+                        How to connect customer data
+                      </div>
+                      <div class="item-description">
+                        is the way to go. Once you have used
+                      </div>
+                    </a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a href="">
+                      <div class="item-title">
+                        Stripe
+                      </div>
+                      <div class="item-description">
+                        it is a good practice to remind
+                        <mark>customers</mark>
+                      </div>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Collections -->
+  {% if collections.size > 0 %}
+    <div class="section-helpcenter-collection">
+      <div class="page-padding">
+        <div class="container-large">
+          <div class="margin-top margin-xxlarge">
+
+            <div class="column-wrapper">
+              {% for collection in collections %}
+                <div class="column-1-collection">
+                  <a href="/{{page.locale}}/c/{{collection.id}}-{{collection.title | slugify}}" class="helpcenter-collection-link w-inline-block">
+                    <div class="collection-item">
+                      {% if collection.icon %}
+                        <img src="//d2969mkc0xw38n.cloudfront.net/{{ collection.icon }}" loading="lazy" width="37" alt="" class="collection-png">
+                      {% endif %}
+                      <div class="collection-title-wrapper">
+                        <div class="collection-title">
+                          <h4 class="heading-custom-small">{{ collection.title }}</h4>
+                          <p class="paragraph-body is-margin-none is-margin-bottom-none collection-paragraph">{{ collection.description }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+          <div class="margin-vertical margin-top-bottom-custom-xlarge"></div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- featured articles -->
+
+  {%- comment -%}
+    {% if articles.size > 0 %}
+    <div class="section-featured-articles">
+    <div class="page-padding">
+    <div class="container-large">
+    <div class="margin-top margin-xxlarge">
+    <div class="padding-vertical padding-xxlarge">
+    <div class="featured-article-title">
+    <h4 class="heading-small">Featured Articles</h4>
+    </div>
+    <ul role="list" class="article-list">
+    {% for article in articles %}
+    <li class="article-list-item">
+    <a data-w-id="976b6b79-77a9-e4f3-64dc-a98b9a464d8f" href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}" class="article-link w-inline-block">
+    <p class="paragraph-body is-deep-black article-link-text">{{article.title}}</p>
+    <div class="article_link-bottom_border"></div>
+    </a>
+    </li>
+    {% endfor %}
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    {% endif %}
+  {%- endcomment -%}
+</main>
+
+<!-- footer -->
+{% include 'partials/footer.liquid' %}

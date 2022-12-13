@@ -1,0 +1,16 @@
+  <div class="mt4">&nbsp;</div>
+  <footer class="ph3 pv4 wrp lh-copy tc">
+    <div class="pv1">{% for link in site.footer %}<a href="{{link.url}}" class="ph3">{{link.title}}</a>{% endfor %}</div>
+    {% if site.promo %}<div class="pv2 mt2"><a href="https://engage.so/?utm_source=products&utm_medium=help&utm_campaign=free" target="_blank">⚡ Create your own help center with Engage.</a></div>{% endif %}
+  </footer>
+
+  <script>
+  window.domain = '{{site.domain}}'
+  window.locale = '{{page.locale}}'
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/typesense@latest/dist/typesense.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
+  <script src="/app.js"></script>
+  {{site.script}}
+</body>
+</html>

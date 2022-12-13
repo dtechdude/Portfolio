@@ -1,0 +1,10 @@
+{
+  "name": "build-docs",
+  "version": "1.2.1",
+  "dependencies": {
+    "@bugsnag/js": "^7.16.2",
+    "aws-sdk": "^2.1111.0",
+    "liquidjs": "^9.36.0",
+    "mongodb": "^4.5.0"
+  }
+}

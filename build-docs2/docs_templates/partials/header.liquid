@@ -1,0 +1,46 @@
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css">
+  <link rel="stylesheet" href="//d2969mkc0xw38n.cloudfront.net/cdn/css/docs.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic">
+  <style>
+  {% if site.header_color %}
+  .hero {
+    background-color: {{site.header_color}};
+  }
+  {% endif %}
+  {{site.css}}
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <div class="pa3 wrp">
+      <header>
+        <div class="pv3">
+          <div class="lh-title logo pr4">
+            <a href="/{{page.locale}}/" class="flex items-center">
+              {% if site.logo %}
+              <img src="{{site.logo}}" alt="{{site.title | escape}}" title="{{site.title | escape}} logo">
+              {% else %}
+              <span class="title f3 fw0">{{site.title}}</span>
+              {% endif %}
+              <span class="fw6">Help Center</span>
+            </a>
+          </div>
+          <input class="side-menu" type="checkbox" id="side-menu"/>
+          <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+          <nav class="menu">
+            {% for link in site.menu %}
+            <a href="{{link.url}}" class="mh3 db">{{link.title}}</a>
+            {% endfor %}
+          </nav>
+        </div>
+      </header>
+
+      {% if is_index %}{% else %}
+      <div class="mt4 pv3">
+        <div id="search"></div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+

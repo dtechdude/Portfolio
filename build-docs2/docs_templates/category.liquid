@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>{{page.title}}</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{page.description | escape}}">
+  {% if site.icon %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{site.icon}}">
+  {% endif %}
+  {% include 'partials/header.liquid' %}
+
+  <div class="bg-white">
+    <section class="ph3 pv4 wrp">
+      <div class="flex flex-wrap items-center breadcrumbs">
+        <a href="/{{page.locale}}/">Home</a>{% if category.collection %} <img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" class="chevron" alt=">"> <a href="/{{page.locale}}/c/{{category.collection_id}}-{{category.collection | slugify}}">{{category.collection}}</a>{% endif %} <img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" class="chevron" alt=">"> {{category.title}}
+      </div>
+
+      <div class="topic-list">
+      {% for article in category.articles %}
+        <a href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}">
+          <h2 class="ma0 f4 lh-title">{{article.title}}</h2>
+          <div class="lh-copy pv2">{{article.excerpt}}</div>
+          <div class="lh-copy f6 fade">updated {{article.last_updated}}</div>
+        </a>
+      {% endfor %}
+      </div>
+    </section>
+  </div>
+
+{% include 'partials/footer.liquid' %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>{{page.title}}</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{page.description | escape}}">
+  {% if site.icon %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{site.icon}}">
+  {% endif %}
+  {% include 'partials/header.liquid' %}
+
+  <div class="bg-white">
+    <section class="ph3 pv4 wrp">
+      <div class="flex flex-wrap items-center breadcrumbs">
+        <a href="/{{page.locale}}/">Home</a> <img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" class="chevron" alt=">"> {{collection.title}}
+      </div>
+
+      {% for category in collection.categories %}
+      <div class="post-list">
+        <h2 class="ma0 f4 lh-title pb2">{{category.title}}</h2>
+        {% assign half = category.articles.size | divided_by: 2 | ceil  %}
+        <div class="flex flex-wrap lh-copy">
+          <div class="w-50-l w-100-m ph2">
+            <ul class="item-list">
+            {% for article in category.articles limit:half %}
+            <li class="pv1"><a href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}">{{article.title}}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+          <div class="w-50-l w-100-m ph2">
+            <ul class="item-list">
+            {% for article in category.articles offset:half %}
+            <li class="pv1"><a href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}">{{article.title}}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      
+    </section>
+  </div>
+
+  {% include 'partials/footer.liquid' %}

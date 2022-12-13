@@ -1,0 +1,96 @@
+<!-- header -->
+{% include 'partials/header-collapsed.liquid' %}
+
+<main class="main-wrapper">
+  <div class="section-featured-article">
+    <div class="page-padding">
+      <div class="container-large">
+        <nav class="breadcrumb">
+          <div class="margin-top margin-huge">
+            <a href="/{{page.locale}}/" class="text-style-subheading is-bg-none">HOME</a>
+            {% if article.collection %}<img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" loading="lazy" alt=">" class="breadcrumb-arrow">
+              <a href="/{{page.locale}}/c/{{article.collection_id}}-{{article.collection | slugify}}" class="text-style-subheading is-bg-none">{{article.collection}}</a>
+            {% endif %}
+            {% if article.category %}<img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" loading="lazy" alt="arrow" class="breadcrumb-arrow">
+              <a href="/{{page.locale}}/c/{{article.category_id}}-{{article.category | slugify}}" class="text-style-subheading is-bg-none">{{article.category}}</a>
+            {% endif %}
+          </div>
+        </nav>
+        <div class="helpcenter-article-wrapper">
+          <div class="margin-top margin-xlarge">
+            <div class="article-wrapper">
+              <aside class="sidebar">
+                <div data-hover="false" data-delay="0" class="siderbar-collapsible w-dropdown">
+                  <div class="sidebar-toggle w-dropdown-toggle">
+                    <div class="icon-2 w-icon-dropdown-toggle"></div>
+                    <div class="text-style-subheading is-bg-none is-text-color-grey">articles in this section</div>
+                  </div>
+
+                  <nav class="sidebar-dropdown w-dropdown-list">
+                    <ul role="list" class="sidebar-item-group">
+                      {% for article in category.articles %}
+                        <li class="sidebar-item">
+                          <a href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}" aria-current="page" class="sidebar-link w-inline-block w--current">
+                            <p>{{article.title}}</p>
+                          </a>
+                        </li>
+                      {% endfor %}
+                    </ul>
+                  </nav>
+                </div>
+              </aside>
+              <article class="article-content">
+                <div class="padding-horizontal padding-custom-xlarge">
+                  <div class="padding-vertical padding-custom-large">
+                    <div class="article-title_group">
+                      <div class="article-title">
+                        <h1>{{article.title}}</h1>
+                      </div>
+                      <div class="hr"></div>
+                    </div>
+                    <p class="paragraph-body">In this article:</p>
+                    {% if article.outline and article.outline.size > 0 %}
+                      <ul>
+                        {% for outline in article.outline %}
+                          <li class="article-item">
+                            <a href="#{{outline.link}}">
+                              {{outline.title}}
+                            </a>
+                          </li>
+                        {% endfor %}
+                      </ul>
+                    {% endif %}
+                    <div class="margin-top margin-large">
+                      <div>
+
+                        {{article.body}}
+
+                      </div>
+                      <div class="margin-top margin-xlarge">
+                        <div class="article-feedback_block">
+                          <div class="hr is-margin-bottom-custom-medium"></div>
+                          <p class="heading-custom-tiny">Was this article helpful?</p>
+                          <div class="article-feedback_buttons">
+                            <a href="https://app.engage.so/auth/signup" class="button is-margin-right-custom-medium w-inline-block">
+                              <div class="button-link-text">Yes, thanks</div>
+                            </a>
+                            <a href="https://app.engage.so/auth/signup" class="button outline w-inline-block">
+                              <div class="button-link-text">Not helpful</div>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- footer -->
+{% include 'partials/footer.liquid' %}
