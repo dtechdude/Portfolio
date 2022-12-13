@@ -1,0 +1,9 @@
+node_modules/
+*package-lock.json
+demo.js
+#.npmrc
+gkey.json
+cred
+.github*
+.git
+.gitignore

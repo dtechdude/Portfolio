@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>{{page.title}}</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{page.description | escape}}">
+  {% if site.icon %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{site.icon}}">
+  {% endif %}
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/sunburst.min.css">
+  {% include 'partials/header.liquid' %}
+
+  <div class="bg-white">
+    <section class="ph3 pv4 wrp">
+      <div class="flex flex-wrap items-center breadcrumbs">
+        <a href="/{{page.locale}}/">Home</a>{% if article.collection %} <img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" class="chevron" alt=">"> <a href="/{{page.locale}}/c/{{article.collection_id}}-{{article.collection | slugify}}">{{article.collection}}</a>{% endif %}{% if article.category %} <img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" class="chevron" alt=">"> <a href="/{{page.locale}}/c/{{article.category_id}}-{{article.category | slugify}}">{{article.category}}</a>{% endif %}
+      </div>
+
+      <h1 class="lh-title">{{article.title}}</h1>
+
+      <div class="flex flex-wrap flex-row-reverse-ns">
+        <div class="pb4 pl5-ns w-30-ns w-100">
+          {% if article.outline and article.outline.size > 0 %}
+          <div class="toc f6">
+            <div class="lh-title pv2 fw6">On this page</div>
+            <ul class="item-list lh-copy">
+            {% for outline in article.outline %}
+              <li><a href="#{{outline.link}}">{{outline.title}}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        </div>
+
+        <div class="w-70-ns w-100 content">
+          <div class="lh-copy">
+            {{article.body}}
+          </div>
+          <!--div class="mt4 tc lh-copy">
+            <div class="pv2">Was this article helpful?</div>
+            <div><button class="yes">Yes</button> <button class="no">No</button></div>
+          </div-->
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+{% include 'partials/footer.liquid' %}

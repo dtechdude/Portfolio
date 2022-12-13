@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="utf-8">
+  <title>{{page.title}}</title>
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{page.description | escape}}">
+  {% if site.icon %}
+  <link rel="icon" type="image/png" sizes="32x32" href="{{site.icon}}">
+  {% endif %}
+  {% assign is_index = true %}
+  {% include 'partials/header.liquid' %}
+
+      <section class="ph6-l ph5-m ph3 pt6 pb5">
+        <div class="tc">
+          <h1 class="lh-title">Hello, how can we help?</h1>
+          <div class="pv3">
+            <div id="search"></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  {% if collections.size > 0 %}
+  <!-- Collections -->
+  <section class="ph3 pv4 wrp">
+    <div class="flex flex-wrap">
+      {% for collection in collections %}
+      <a href="/{{page.locale}}/c/{{collection.id}}-{{collection.title | slugify}}" class="card pa4">
+        {% if collection.icon %}
+        <div><img src="//d2969mkc0xw38n.cloudfront.net/{{ collection.icon }}" alt="Icon"></div>
+        {% endif %}
+        <h2 class="ma0 f4 lh-title pv2">{{ collection.title }}</h2>
+        <p class="lh-copy mv2">{{ collection.description }}</p>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if categories.size > 0 or articles.size > 0 %}
+  <!-- Categories or Articles -->
+  <div class="bg-white">
+    <section class="ph3 pv4 wrp">
+    {% if categories.size > 0 %}
+      <!-- Categories -->
+      {% for category in categories %}
+      <div class="post-list">
+        <h2 class="ma0 f4 lh-title pb2">{{category.title}}</h2>
+        {% assign half = category.size | divided_by: 2 | ceil  %}
+        <div class="flex flex-wrap lh-copy">
+          <div class="w-50-l w-100-m ph2">
+            <ul class="item-list">
+            {% for article in category.articles limit:half %}
+            <li class="pv1"><a href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}">{{article.title}}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+          <div class="w-50-l w-100-m ph2">
+            <ul class="item-list">
+            {% for article in category.articles offset:half %}
+            <li class="pv1"><a href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}">{{article.title}}</a></li>
+            {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    {% endif %}
+    {% if articles.size > 0 %}
+      <!-- Articles -->
+      <div class="topic-list">
+      {% for article in articles %}
+        <a href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}">
+          <h2 class="ma0 f4 lh-title">{{article.title}}</h2>
+        </a>
+      {% endfor %}
+      </div>
+    {% endif %}
+    </section>
+  </div>
+  {% endif %}
+
+  {% include 'partials/footer.liquid' %}

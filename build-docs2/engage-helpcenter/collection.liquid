@@ -1,0 +1,50 @@
+<!-- header -->
+{% include 'partials/header-collapsed.liquid' %}
+
+<main class="main-wrapper">
+  <div class="section-featured-article">
+    <div class="page-padding">
+      <div class="container-large">
+        <nav class="breadcrumb">
+          <div class="margin-top margin-huge">
+            <a href="/{{page.locale}}/" class="text-style-subheading is-bg-none">HOME</a><img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" loading="lazy" alt=">" class="breadcrumb-arrow">
+            <p class="text-style-subheading is-bg-none is-text-color-grey">{{collection.title}}</p>
+          </div>
+        </nav>
+        <div class="article-title_group">
+          <div class="padding-top padding-xxlarge">
+            <div class="article-title"><img src="images/helpcenter-start-bigger-icon.svg" loading="lazy" width="40" alt="Gettting started icon" class="article-title_img">
+              <h4 class="heading-medium">{{collection.title}}</h4>
+            </div>
+            <div class="hr"></div>
+          </div>
+        </div>
+
+
+        {% for category in collection.categories %}
+          <div class="margin-top margin-large">
+            <div class="featured-article-title">
+              <h5 class="heading-small">{{category.title}}</h5>
+            </div>
+            <ul role="list" class="article-list">
+              {% for article in category.articles %}
+                <li class="article-list-item is-large">
+                  <a data-w-id="ddcf6c66-4359-e2e5-456d-1b7333e0bdd7" href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}" class="article-link w-inline-block">
+                    <p class="paragraph-body is-deep-black is-margin-botom-none article-link-text">{{article.title}}</p>
+                    <div class="article_link-bottom_border"></div>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+            <div class="hr is-margin-top-custom-medium"></div>
+          </div>
+        {% endfor %}
+
+        <div class="margin-vertical margin-top-bottom-custom-xlarge"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- footer -->
+{% include 'partials/footer.liquid' %}

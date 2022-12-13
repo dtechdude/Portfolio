@@ -1,0 +1,38 @@
+<!-- header -->
+{% include 'partials/header-collapsed.liquid' %}
+
+<main class="main-wrapper">
+  <div class="section-featured-article">
+    <div class="page-padding">
+      <div class="container-large">
+        <nav class="breadcrumb">
+          <div class="margin-vertical margin-xlarge">
+            <a href="/{{page.locale}}/" class="text-style-subheading is-bg-none">HOME</a>
+            {% if category.collection %}
+              <img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" class="breadcrumb-arrow" alt=">">
+              <a href="/{{page.locale}}/c/{{category.collection_id}}-{{category.collection | slugify}}">{{category.collection}}</a>
+            {% endif %}<img src="//d2969mkc0xw38n.cloudfront.net/cdn/images/chevron-right.svg" loading="lazy" alt="arrow" class="breadcrumb-arrow">
+            <p class="text-style-subheading is-bg-none is-text-color-grey">
+              {{category.title}}
+            </p>
+          </div>
+        </nav>
+        {% for article in category.articles %}
+          <div class="category">
+            <a href="/{{page.locale}}/a/{{article.id}}-{{article.title | slugify}}" class="category-link w-inline-block">
+              <h5 class="heading-small">{{article.title}}</h5>
+              <p class="paragraph-body is-margin-bottom-none">{{article.excerpt}}</p>
+              <p class="paragraph-body is-padding-top-custom-small is-text-color-grey is-margin-bottom-none">updated {{article.last_updated}}</p>
+            </a>
+            <div class="hr is-margin-top-custom-small"></div>
+          </div>
+        {% endfor %}
+        <div class="margin-vertical margin-top-bottom-custom-xlarge"></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<!-- footer -->
+{% include 'partials/footer.liquid' %}
